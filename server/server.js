@@ -10,6 +10,7 @@ mongoose.connection.on('error', err => {
 })
 
 app.listen(config.port, (err) => {
+  console.info('Database is at %s.', config.mongoUri)
   if (err) {
     console.log(err)
   }

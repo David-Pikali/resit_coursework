@@ -8,8 +8,22 @@ import helmet from 'helmet'
 import Template from './../template'
 import userRoutes from './routes/user.routes'
 import authRoutes from './routes/auth.routes'
+//comment out before building for production
+import devBundle from './devBundle'
+// modules for server side rendering
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import MainRouter from './../client/MainRouter'
+import { StaticRouter } from 'react-router-dom'
+import { ServerStyleSheets, ThemeProvider } from '@material-ui/styles'
+import theme from './../client/theme'
+//end
 
 const app = express()
+const CURRENT_WORKING_DIR = process.cwd()
+
+//comment out before building for production
+devBundle.compile(app)
 
 // parse body params and attache them to req.body
 app.use(bodyParser.json())
@@ -21,10 +35,29 @@ app.use(helmet())
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.status(200).send(Template())
+app.get('*', (req, res) => {
+  const sheets = new ServerStyleSheets()
+  const context = {}
+  const markup = ReactDOMServer.renderToString(
+    sheets.collect(
+      <StaticRouter location={req.url} context={context}>
+      <ThemeProvider theme={theme}>
+      <MainRouter />
+      </ThemeProvider>
+      </StaticRouter>
+    )
+  )
+  if (context.url) {
+    return res.redirect(303, context.url)
+  }
+  const css = sheets.toString()
+  res.status(200).send(Template({
+    markup: markup,
+    css: css
+  }))
 })
 
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use('/', userRoutes)
 app.use('/', authRoutes)
 
