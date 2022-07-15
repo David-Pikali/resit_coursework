@@ -1,6 +1,8 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Home from './core/Home'
+import Game from './core/Game'
+import ScoreBoard from './core/ScoreBoard'
 import Menu from './core/Menu'
 import Users from './user/Users'
 import Signup from './user/Signup'
@@ -14,6 +16,8 @@ const MainRouter = () => {
       <Menu/>
       <Switch>
         <Route exact path="/" component={Home}/>
+        <Route path="/game" component={Game}/>
+        <Route path="/score-board" component={ScoreBoard}/>
         <Route path="/users" component={Users}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/signin" component={Signin}/>

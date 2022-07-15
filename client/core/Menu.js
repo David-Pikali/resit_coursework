@@ -18,12 +18,18 @@ const Menu = withRouter(({history}) => (
   <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" color="inherit">
-        Lab 6
+        Morro
       </Typography>
       <Link to="/">
         <IconButton aria-label="Home" style={isActive(history, "/")}>
           <HomeIcon/>
         </IconButton>
+      </Link>
+      <Link to="/game">
+        <Button style={isActive(history, "/game")}>Game</Button>
+      </Link>
+      <Link to="/score-board">
+        <Button style={isActive(history, "/score-board")}>Score Board</Button>
       </Link>
       <Link to="/users">
         <Button style={isActive(history, "/users")}>Users</Button>
