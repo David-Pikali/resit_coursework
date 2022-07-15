@@ -4,7 +4,6 @@ import Home from './core/Home'
 import Game from './core/Game'
 import ScoreBoard from './core/ScoreBoard'
 import Menu from './core/Menu'
-import Users from './user/Users'
 import Signup from './user/Signup'
 import Signin from './auth/Signin'
 import PrivateRoute from './auth/PrivateRoute'
@@ -18,7 +17,6 @@ const MainRouter = () => {
         <Route exact path="/" component={Home}/>
         <Route path="/game" component={Game}/>
         <Route path="/score-board" component={ScoreBoard}/>
-        <Route path="/users" component={Users}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/signin" component={Signin}/>
         <PrivateRoute path="/user/edit/:userId" component={EditProfile}/>
