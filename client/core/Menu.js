@@ -16,7 +16,7 @@ const isActive = (history, path) => {
     return {color: '#ffffff'}
 }
 const Menu = withRouter(({history}) => (
-  <AppBar position="static" style={{ background: '#DAA06D' }}>
+  <AppBar position="static" style={{ background: '#000000' }}>
     <Toolbar>
       <Typography variant="h6" color="inherit">
         Morro
