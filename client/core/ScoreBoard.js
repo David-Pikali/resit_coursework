@@ -44,7 +44,7 @@ export default function ScoreBoard(){
   const classes = useStyles()
   return (
     <Card className={classes.card}>
-    <Typography align="center" variant="h6" className={classes.title}>
+    <Typography align="center" variant="h2" className={classes.title}>
       Score Board
     </Typography>
     <table width="100%">

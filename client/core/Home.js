@@ -41,7 +41,7 @@ export default function Home(){
   const classes = useStyles()
   return (
     <Card className={classes.card}>
-      <Typography align="center" variant="h4" className={classes.title}>
+      <Typography align="center" variant="h2" className={classes.title}>
         Morro Game
       </Typography>
     <CardContent>

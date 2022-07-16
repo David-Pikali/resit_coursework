@@ -8,6 +8,7 @@ import myImg from './../assets/images/myimage.png'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -38,16 +39,20 @@ export default function Game(){
   const classes = useStyles()
   return (
     <Card className={classes.card}>
-    <Typography variant="h6" className={classes.title}>
-      GAME
+    <Typography align="center" variant="h2" className={classes.title}>
+      The Game
     </Typography>
     <CardContent>
-    <Typography variant="body1" component="p">
+    <Typography align="center" variant="h5" component="p">
       Score:
     </Typography>
-    <h6 id="score_display">0</h6>
+    <Box textAlign='center'>
+    <h1 id="score_display">0</h1>
+    </Box>
     </CardContent>
-    <Button
+
+    <Box textAlign='center'>
+    <Button variant="contained"
       onClick={() => {
         var score = document.getElementById('score_display');
         var value = score.innerHTML;
@@ -56,6 +61,7 @@ export default function Game(){
         document.getElementById('score_display').innerHTML = value;
       }}
       >Add Score</Button>
+      </Box>
 
     </Card>
  )
