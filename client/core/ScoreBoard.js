@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -7,6 +7,13 @@ import Typography from '@material-ui/core/Typography'
 import myImg from './../assets/images/myimage.png'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -37,15 +44,42 @@ export default function ScoreBoard(){
   const classes = useStyles()
   return (
     <Card className={classes.card}>
-    <Typography variant="h6" className={classes.title}>
+    <Typography align="center" variant="h6" className={classes.title}>
       Score Board
     </Typography>
-    <CardContent>
-    <Typography variant="body1" component="p">
-      Score:
-    </Typography>
-    </CardContent>
-    <Button>Add Score</Button>
+    <table width="100%">
+      <tr>
+        <th>Ranking</th>
+        <th>User Name</th>
+        <th>Score</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Bill</td>
+        <td>180</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Bob</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>John</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Alex</td>
+        <td>39</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Bob2</td>
+        <td>4</td>
+      </tr>
+    </table>
     </Card>
+
  )
 }

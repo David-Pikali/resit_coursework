@@ -9,12 +9,6 @@ import Button from '@material-ui/core/Button'
 import auth from './../auth/auth-helper'
 import {Link, withRouter} from 'react-router-dom'
 
-const useStyles = makeStyles(theme => ({
-  AppBar: {
-    backgroundColor: '#a86632'
-  }
-}))
-
 const isActive = (history, path) => {
   if (history.location.pathname == path)
     return {color: '#ff4081'}
@@ -22,7 +16,7 @@ const isActive = (history, path) => {
     return {color: '#ffffff'}
 }
 const Menu = withRouter(({history}) => (
-  <AppBar position="static">
+  <AppBar position="static" style={{ background: '#DAA06D' }}>
     <Toolbar>
       <Typography variant="h6" color="inherit">
         Morro

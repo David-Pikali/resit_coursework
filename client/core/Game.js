@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import myImg from './../assets/images/myimage.png'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -44,8 +45,18 @@ export default function Game(){
     <Typography variant="body1" component="p">
       Score:
     </Typography>
+    <h6 id="score_display">0</h6>
     </CardContent>
-    <Button>Add Score</Button>
+    <Button
+      onClick={() => {
+        var score = document.getElementById('score_display');
+        var value = score.innerHTML;
+        ++value
+        console.log(value);
+        document.getElementById('score_display').innerHTML = value;
+      }}
+      >Add Score</Button>
+
     </Card>
  )
 }
