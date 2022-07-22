@@ -1,6 +1,6 @@
 {
   "name": "resituserlogins",
-  "version": "1.0.0",
+  "version": "16.14.0",
   "description": "A big monster of a lab",
   "main": "index.js",
   "scripts": {
